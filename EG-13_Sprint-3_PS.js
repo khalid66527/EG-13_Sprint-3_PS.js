@@ -1,16 +1,48 @@
+//06. 3Sum
+var threeSum = function(nums) {
+    let result = [];
+    nums.sort((a, b) => a - b);
 
-//05. Majority Element
-var majorityElement = function(nums) {
-    let count = {};
+    for (let i = 0; i < nums.length - 2; i++) {
+        if (i > 0 && nums[i] === nums[i - 1]) continue;
 
-    for (let num of nums) {
-        count[num] = (count[num] || 0) + 1;
+        let left = i + 1, right = nums.length - 1;
 
-        if (count[num] > nums.length / 2) {
-            return num;
+        while (left < right) {
+            let sum = nums[i] + nums[left] + nums[right];
+
+            if (sum === 0) {
+                result.push([nums[i], nums[left], nums[right]]);
+                left++;
+                right--;
+            } else if (sum < 0) {
+                left++;
+            } else {
+                right--;
+            }
         }
     }
+
+    return result;
 };
+
+console.log(threeSum([-1, 0, 1, 2, -1, -4]));
+
+
+
+
+// //05. Majority Element
+// var majorityElement = function(nums) {
+//     let count = {};
+
+//     for (let num of nums) {
+//         count[num] = (count[num] || 0) + 1;
+
+//         if (count[num] > nums.length / 2) {
+//             return num;
+//         }
+//     }
+// };
 
 
 
