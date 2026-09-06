@@ -1,3 +1,12 @@
+//10. Sort Colors
+var sortColors = function(nums) {
+    return nums.sort((a, b) => a - b);
+};
+
+
+
+
+
 //09. Longest Consecutive Sequence
 var longestConsecutive = function(nums) {
     let set = new Set(nums);
@@ -20,7 +29,7 @@ var longestConsecutive = function(nums) {
     return longest;
 };
 
-console.log(longestConsecutive([100, 4, 200, 1, 3, 2]));
+
 
 
 
