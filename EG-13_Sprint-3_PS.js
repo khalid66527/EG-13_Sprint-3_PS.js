@@ -1,4 +1,24 @@
 
+//08. Top K Frequent Elements
+var topKFrequent = function(nums, k) {
+    let count = {};
+
+    for (let num of nums) {
+        count[num] = (count[num] || 0) + 1;
+    }
+
+    return Object.keys(count)
+        .sort((a, b) => count[b] - count[a])
+        .slice(0, k)
+        .map(Number);
+};
+
+
+
+
+
+
+
 //07. Subarray Sum Equals K
 var subarraySum = function(nums, k) {
     let count = 0;
